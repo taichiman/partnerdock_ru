@@ -1,0 +1,17 @@
+<h1>Ссылок, подподающих под данное правило: <%= @n %></h1>
+
+<div>
+	<% $selected_links.each do |l|%>
+			<%= l %><br>
+		<% end %>
+</div>
+
+<%= form_tag('/partners/add_link') do %>
+<%= hidden_field_tag 'site', @site %>
+<%= hidden_field_tag 'desc', @desc %>
+<%= hidden_field_tag 'regex', @regex %>
+<%= submit_tag "Применить изменения" %>
+<% end %>
+
+<%= link_to "Назад", url_for(:back) %>
+

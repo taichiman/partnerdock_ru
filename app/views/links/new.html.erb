@@ -1,0 +1,65 @@
+<div>
+<%= link_to "Выйти", '/users/exit' %>|
+<%= link_to "Публичная страница ==>", '/id/'+session[:user_id].to_s %>
+<%= text_field_tag 'name', '127.0.0.1:3000/id/'+session[:user_id].to_s, :disabled => true %>|
+<% if @user.admin == true %>
+<%= link_to "Админка", '/partners/index_draft_links' %>
+<% end %>
+</div>
+
+<h2><%= "Добро пожаловать, #{@user[:name]}!"%></h2>
+
+<div>
+	<% if flash[:notice] %>
+		<div class="notice">
+		  <%= flash[:notice] %>
+		</div>
+	<% end %>
+</div>
+
+<p> Добавьте партнерскую ссылку:</p>
+
+<%= form_for @link do |f| %>
+	<% if @link.errors.any? %>
+    <div id="error_explanation">
+      <h2>Ошибка</h2>
+      <ul>
+      <% @link.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :link %>
+  </div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+
+<% end %>
+
+<br>
+<div>
+	<h3>Партнерские ссылки:</h3>
+
+	<p>"партнерская ссылка  --- описание партнера  ---   сайт партнера +++ число переходов"</p>
+
+	<% @active_links.each do |l|%>
+		<table>
+		<tr><% @l=l %><%= render "link"%>
+		</tr>
+		</table>
+	<% end %>
+</div>
+	<br>
+<div>
+	<h3>Ссылки, которые хотят стать хорошими:</h3>
+	<% @nonactive_links.each do |l|%>
+		<table>
+		<tr><% @l=l %>	<%= render "link"%> </tr>
+		</table>
+	<% end %>
+</div>
+

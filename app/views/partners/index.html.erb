@@ -1,0 +1,21 @@
+<%= link_to 'Назад к ссылкам', :controller=>'links' %>|
+<%= link_to 'Добавление партнеров', :controller=>'partners', :action=>'index_draft_links' %>
+<h1>Редактировать партнеров:<br>
+<h3>url партнера--описание--regex</h3><br>
+
+<%  @i=0  %>
+
+<table>
+  <% for p in @partners  %>
+  <% @i=@i+1 %>
+  <tr>
+    <td>
+    <%= "#{@i}. #{p.url} -- #{p.description} -- #{p.regex}" %>
+
+    <%= link_to 'Edit', edit_partner_path(p) %>
+    <%= link_to 'Del', p, :confirm => 'Вы уверены?', :method => :delete %>
+    </td>
+  </tr>
+<%end%>
+</table>
+

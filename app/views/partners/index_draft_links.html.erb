@@ -1,0 +1,14 @@
+<%= link_to "Назад  к ссылкам", '/links/new' %>
+|<%= link_to "Редактировать партнеров", :controller=>'partners' %>
+
+<h1>Добавление партнеров :</h1>
+<p>партнерская ссылка  --- user id  ---   время добавления</p>
+
+<div>
+	<% @draft_links.each do |l|%>
+		<table>
+		<tr><% @l=l %><%= render "link"%></tr>
+		</table>
+	<% end %>
+</div>
+

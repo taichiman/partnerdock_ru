@@ -1,0 +1,7 @@
+<td><%= @l.link %><%= "      ---     #{@l.partner.description if @l.partner!=nil}      ---     #{@l.partner.url if @l.partner!=nil} +++ " %></td>
+<td>
+<%= Click.find_all_by_link_id(@l[:id]).count %>
+<%= link_to 'Del', @l, :confirm => 'Вы уверены?', :method => :delete %>
+
+</td>
+

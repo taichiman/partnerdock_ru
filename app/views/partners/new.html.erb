@@ -1,0 +1,14 @@
+<%= link_to "Назад", :back %>
+<h3>Назначить партнера для ссылки: <b><br></h3>
+<h4><%= @draft_link.link %></h4>
+
+<%= form_tag ('/partners') do %>
+<%= label_tag "Url партнера:"%><br>
+<%= text_field_tag 'site', @draft_link.link %><br>
+<%= label_tag "Description:"%><br>
+<%= text_area_tag 'description', @draft_link.link %><br>
+<%= label_tag "regex:"%><br>
+<%= text_field_tag 'regex', @draft_link.link %><br>
+<%= submit_tag "Проверить regex"%>
+<% end %>
+
