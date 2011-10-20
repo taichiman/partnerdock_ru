@@ -8,6 +8,8 @@ gem 'rails', '3.0.9'
 gem 'sqlite3'
 gem "yaml_db", "~> 0.2.1"
 
+gem "awesome_print", "~> 0.4.0"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

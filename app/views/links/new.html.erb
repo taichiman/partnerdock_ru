@@ -1,7 +1,7 @@
 <div>
 <%= link_to "Выйти", '/users/exit' %>|
-<%= link_to "Публичная страница ==>", '/id/'+session[:user_id].to_s %>
-<%= text_field_tag 'name', '127.0.0.1:3000/id/'+session[:user_id].to_s, :disabled => true %>|
+<%= link_to "Публичная страница ==>", '/id/'+ session[ :user_id ].to_s %>
+<%= text_field_tag 'name', '127.0.0.1:3000/id/'+ session[ :user_id ].to_s, :disabled => true %>|
 <% if @user.admin == true %>
 <%= link_to "Админка", '/partners/index_draft_links' %>
 <% end %>

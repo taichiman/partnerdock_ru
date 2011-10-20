@@ -1,18 +1,16 @@
 Projekt1::Application.routes.draw do
 
 root :to => "users#signin"
+
 resources :links
 match "partners/index_draft_links" => "partners#index_draft_links"
-resources :partners
 
+resources :partners
 match "partners/new/:id" => "partners#new"
 match "partners/add_link" => "partners#add_link"
 
 #match "partner/:id/edit" => "partner#edit"
-
-
 #match "partners" => "partner#index"
-
 #match "partner/create" => "partner#create"
 #match "partner/show" => "partner#show"
 
@@ -21,6 +19,7 @@ match 'users/create' => 'users#create'
 match 'users/signin' => 'users#signin'
 match 'users/edit' => 'users#edit'
 match 'users/exit' => 'users#exit'
+
 match 'links/new' => 'links#new'
 match '/id/:id' => 'users#show'
 match '/clicks/create/:id'=>'clicks#create'
